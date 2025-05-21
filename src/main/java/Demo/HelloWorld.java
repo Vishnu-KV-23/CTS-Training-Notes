@@ -58,6 +58,36 @@ public class HelloWorld {
 //        final keyword used used to define constants
         final double INTEREST_RATE=7.456;
         //INTEREST_RATE=56; will throw an exception
+        int age=18;
+        if (age>=18){
+            System.out.println("You can vote");
+        }
+        else {
+            System.err.println("Not eligible to vote");
+        }
+        char grade ='A';
+        if (grade=='A'){
+            System.out.println("Grade is A");
+        }
+        else if (grade=='B'){
+            System.out.println("grade is B");
+        }
+        else
+        {
+            System.out.print("You dont have grades");
+        }
+
+        String month="JAN";
+        switch(month){
+            case "JAN":
+                System.out.print("january");
+                break;
+            case "FEB":
+                System.out.print("february");
+                break;
+            default:
+                System.out.println("Not a month");
+        }
     }
 
 }
