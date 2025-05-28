@@ -118,5 +118,23 @@ class Emp {
     }
     public void printInfo(){
         System.out.println("Employee:"+ this.fullName+"\nEmpID:"+this.empId+"\nGender:"+this.gender+"\nEmail:"+this.email);
+        // static variables from Student
+        System.out.println(Student.collegeName);
+        //the student constructor only executes when an instance is made
+        //instance block is executed when an instance is created
+        Student s1=new Student();
+        Student s2=new Student();
+        //NOT a Proper way to use the static variables
+        System.out.println(s1.collegeName);
+        System.out.println(s2.collegeName);
+        //Proof that static variables belong to the class and not the object
+        Student.collegeName="Reyansh College";
+        System.out.println(s1.collegeName);
+        System.out.println(s2.collegeName);
+        //SEEEEEEEEEEEEEEEE
+        //we access static methods and variables via ClassName.var
+        Student.getCollegeName();
+
     }
+
 }
