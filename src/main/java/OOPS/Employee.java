@@ -1,140 +1,114 @@
-package OOPS;
+package oops;
 
-/**
- * OOPs:object oriented programming
- * 1.Class:collection of entities that share some common attributes eg; humans,students etc| blueprint to create objects
- * 2.Object:instance of a class, a realization of the class
- * 3.Encapsulation: usage of getters and setters
- * 4.Abstraction
- * 5.Inheritance
- * 6.Polymorphism
- */
+import java.time.LocalDate;
 
+public class Employee {
 
-public class Employee{
-    /**
-     * Constructor: A special method , gets executed when a object is created,have
-     * the same name as 0f the class , if no constructor java will add a default constructor
-     * they have no return type.
-     * it is executed when the object is created
-     *
-     * Employee obj = new Employee()
-     *
-     * 1.Memory allocation
-     * 2.Default variable initialization
-     * 3. Constructor execution
+  /**
+   * Class level attributes or global variables. They are automatically
+   * initialized by java. Local variables must be programatically initialized.
+   * 
+   * Access Modifiers:
+   * final, abstract, static
+   * 
+   * Access Specifiers:
+   * private - only inside the class
+   * public - inside the class, inside the package, outside the package
+   * protected - class and subclass
+   * default-access or package-friendly - package level access
+   * 
+   * Access Level
+   * class, package, outside-package
+   */
+  private String empId;
+  private String fullName;
+  private String email;
+  private char gender;
+  private String department;
+  private LocalDate hiredDate;
 
-     */
-    public Employee()
-    {
-        System.out.println("Constructor executed");
-    }
+  /**
+   * Constructor: A special method, gets executed when an object is created, have
+   * the same name as of the class, and have no return type. If no constructor is
+   * provided Java will add a default constructor into the class.
+   * 
+   * Employee obj = new Employee()
+   * 1. Memory Allocation [happens in heap memory]
+   * 2. Property initialization with default values
+   * 3. Constructor execeution
+   * 4. Reference is returned
+   */
+  public Employee() {
+    System.out.println("Employee constructor executed....");
+  }
 
-    public static void main(String[] args){
-        //use new keywprd to make object of the class
-//not a standard manner to get the data or access the data , use Getters and Setters mentioned below
-        Emp emp = new Emp(); // Object creation and constructor call
-//        emp.empId = "E001";
-//        emp.fullName="Vishnu";
+  public Employee(String empId, String fullName, String email) {
+    this.empId = empId;
+    this.fullName = fullName;
+    this.email = email;
+  }
 
-//        //local inner class
-//        class MainInner{
-//
-//             }
+  /**
+   * <acess-specifier> <access-modifier> return-type methodName(<parameters>) {}
+   * 
+   * Uses camelCase naming conventions
+   * Getters and Setters | Accessor and Mutator
+   * 
+   * data-type propertyName
+   * 
+   * public data-type getPropertyName () {}
+   * 
+   * public void setPropertyName(data-type parameter) {}
+   */
+  public String getEmpId() {
+    return empId;
+  }
 
+  public String getFullName() {
+    return fullName;
+  }
 
+  public String getEmail() {
+    return email;
+  }
 
+  public char getGender() {
+    return gender;
+  }
 
-        Employee obj = new Employee();
+  public String getDepartment() {
+    return department;
+  }
 
-        emp.setEmail("wishnukv2349@gmail.com");
-        emp.setEmpId("E001");
-        emp.setGender('M');
-        emp.setFullName("Vishnu K V");
-        emp.printInfo();
-    }
-}
-class Emp {
-    /**
-     * Access modifiers:final,abstract,static
-     * Access specifiers:
-     * private-only inside the class
-     * public-inside the class , inside the package,outside the package
-     * protected- class and sub class
-     * default-access or friendly - package level access(if i dont specify any specifier then it is default)
-     */
+  public LocalDate getHiredDate() {
+    return hiredDate;
+  }
 
-    /**
-     * Access Level
-     * class,package,outside-package
-     */
-    private   String empId;
- private   String fullName;
- private   String email;
- private   char gender;
-//Getters and Setters | Accessor and Mutator MEthods
-/**
- * <acess-specifier > <acess modifier> return-type methodName (<parameters>)- FORMAT OF A METHOD
- *
- * datatype propertyName
- * setter and getter is public
- * getter has return type inorder to return the value
- * setter has void return
- *
- * public returntype getVariableName()-getter
- * public void setVariableName()- setter
+  public void setEmpId(String empId) {
+    this.empId = empId;
+  }
 
- */
-    public String getEmpId() {
-        return empId;
-    }
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-    public char getGender() {
-        return gender;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setDepartment(String department) {
+    this.department = department;
+  }
 
-    public String getFullName() {
-        return fullName;
-    }
+  public void setGender(char gender) {
+    this.gender = gender;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setHiredDate(LocalDate hiredDate) {
+    this.hiredDate = hiredDate;
+  }
 
-    public void setEmpId(String empId) {
-        this.empId=empId;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-    public void printInfo(){
-        System.out.println("Employee:"+ this.fullName+"\nEmpID:"+this.empId+"\nGender:"+this.gender+"\nEmail:"+this.email);
-        // static variables from Student
-        System.out.println(Student.collegeName);
-        //the student constructor only executes when an instance is made
-        //instance block is executed when an instance is created
-        Student s1=new Student();
-        Student s2=new Student();
-        //NOT a Proper way to use the static variables
-        System.out.println(s1.collegeName);
-        System.out.println(s2.collegeName);
-        //Proof that static variables belong to the class and not the object
-        Student.collegeName="Reyansh College";
-        System.out.println(s1.collegeName);
-        System.out.println(s2.collegeName);
-        //SEEEEEEEEEEEEEEEE
-        //we access static methods and variables via ClassName.var
-        Student.getCollegeName();
-
-    }
-
+  public void printInfo() {
+    System.out.println("Employee: " + this.fullName + " " + this.email + " " + this.department);
+  }
 }

@@ -1,32 +1,44 @@
-// Lambda Expression Example in Java
 package lambdas;
-@FunctionalInterface
-interface Greeting {
-    void greet();
-}
-
-@FunctionalInterface
-interface MathOperation {
-    double operation(double a, double b);
-}
 
 public class GreetingLambda {
-    public static void main(String[] args) {
-        // Lambda expressions for Greeting
-        Greeting welcome = () -> System.out.println("Welcome");
-        Greeting helloWorld = () -> System.out.println("Hello World");
+  public static void main(String[] args) {
+    Greeting welcome    = () -> System.out.println("Welcome");
+    Greeting helloWorld = () -> System.out.println("Hello World");
 
-        // Call the greet methods
-        welcome.greet();
-        helloWorld.greet();
+    welcome.greet();
+    helloWorld.greet();
 
-        // Lambda expression for MathOperation
-        MathOperation sum = (a, b) -> a + b;
+    // -> arrow operator lets the JVM know that this is a lambda expression
 
+    /**
+     * When creating a lambda expression,
+     * 1. no need to specify any access specifier.
+     * 2. no need to specify any return type.
+     * 3. no need to specify a name to the method
+     * 4. no need to specify the data types of the parameters
+     * 5. use -> operator
+     * 6. return statement is optional if it is an expression and not a block
+     */
 
+    MathOperation sum         = (a, b) -> a + b;
+    MathOperation multiply    = (a, b) -> a * b;
+    MathOperation quotient    = (a, b) -> a / b;
+    // lambda blocks needs to terminated with a ;
+    // return statements are manadatory here 
+    MathOperation difference  = (a, b) -> {
+      return a - b;
+    };
 
-        // Using the MathOperation
-        double result = sum.operation(5.0, 3.0);
-        System.out.println("Sum: " + result);
-    }
+  }
+
+}
+
+@FunctionalInterface
+interface Greeting {
+  void greet();
+}
+
+@FunctionalInterface // ensures one only abstract method is allowed here
+interface MathOperation {
+  double operation(double a, double b);
 }

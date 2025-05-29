@@ -1,74 +1,72 @@
-package OOPS;
-
-import org.w3c.dom.ls.LSOutput;
+package oops;
 
 public class Student {
 
-    private int rollNumber;
-    private String fullName;
-    private String email;
-    //use when something belongs to class but not to object , like orgname or collegename
-    //static : access modifier that represents contents belongigng to the class directly rather than an instance of a class
-    //loaded when class is loaded
-    //member variables like rollNumber,fullName and email is only loaded when an instance is loaded , that is when an object is made
-    // Studen ajay=new Student()
-    // for static content we can use static block
+  // Properties of Student
+  private int rollNumber;
+  private String fullName;
+  private String email;
 
+  // static: access modifier, repreents content that belongs to class rather than
+  // an instance of that class. Loaded when the class is loaded. To initialize
+  // static content we can use static blocks. static content can be accessed from
+  // the class directly
+  private static String collegeName;
 
-    static String collegeName;
-    static {
-        collegeName="SCMS college";
-        System.out.println("Static block executed");
-        //can call from another class like employee (within the package as Student.collegeName which is CLassname.staticVariableName
-        //
-         }
+  static {
+    collegeName = "ABC College";
+    System.out.println("Static block executed");
+  }
 
+  {
+    System.out.println("Instance block executed");
+  }
 
-         //INSTANCE block: a block of code that gets executed when the class is executed or constructor is run, We can put default codes to finish here
+  public Student() {
+    // this(0,"","");
+    System.out.println("Student class contructor.");
+  }
+  
+  // Constructor overriding
+  public Student(int rollNumber, String fullName, String email) {
+    // zero argument constuctor, this() call must be the first line
+    this(); 
+    System.out.println("Student class contructor 2.");
+    this.rollNumber = rollNumber;
+    this.fullName = fullName;
+    this.email = email;
+  }
 
-    {
-        System.out.println("Instance block executed");
-    }
-    public Student(){
-            System.out.println("Student constructor 1 executed ");
-    }
+  public int getRollNumber() {
+    return rollNumber;
+  }
 
-    public Student(int rollNumber, String fullName, String email) {
-        System.out.println("Student constructor 2 executed");
-        this.rollNumber = rollNumber;
-        this.fullName = fullName;
-        this.email = email;
-    }
+  public void setRollNumber(int rollNumber) {
+    this.rollNumber = rollNumber;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getFullName() {
+    return fullName;
+  }
 
-    public String getFullName() {
-        return fullName;
-    }
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-    public int getRollNumber() {
-        return rollNumber;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setRollNumber(int rollNumber) {
-        this.rollNumber = rollNumber;
-    }
+  public static String getCollegeName() {
+    return collegeName;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public static String getCollegeName()
-    {
-        System.out.printf("My college is %s",Student.collegeName);
-        return collegeName;
-    }
-
-
+  public static void setCollegeName(String collegeName) {
+    Student.collegeName = collegeName;
+  }
 
 }

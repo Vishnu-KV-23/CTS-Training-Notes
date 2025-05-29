@@ -1,93 +1,71 @@
 /**
- * Always create packages and keep the classes in them
- * Package name is always small case
- * package statement must be the first statement in java source file
+ * Always create packages and place the classes inside the packages.
+ * Package name is always in lower case.
+ * package statement must be the first statement in a Java source file
+ * Only one package statement can be present in a java source file
  */
-
-package Demo;
-
+package demo;
 
 /**
- * import statement to be written after package statements
- * import statement is optional]
- * there will be only one package statement
- * by default java imports java.lang package
+ * After the package statement you write the import statement.
+ * import statement is optional, but if needed you can write multiple import statements
+ * in a single java file.
+ * By default java imports the java.lang package
  */
-import java.lang.*; //optional,by default imported
+
+import java.lang.*; // optional, by default imported
 import java.util.*;
 
 
-//we can create multiple class files in a single source files
-//but we can only create one public class access in source file
-
+/**
+ * You can create multiple classes in one java source file.
+ * You can create only one class with public access
+ */
 public class HelloWorld {
-    //first method to execute while executing the java application, would not start if there is no main method
-    //this is default signature of main method.
-    public static void main(String[] args)
-    {
-        System.out.println("Welcome to java programming..");
-        int x=10;
-        String name="Vishnu";
-        char gender='M';
-        boolean AccountIsLocked = false ;
+    // var x = 10; // not allowed
+
+    /**
+     * The main method in Java, which is the first method that will be executed in a Java application.
+     * This is the default signature of the main method.
+     */
+    public static void main(String[] args) {
+
+
+        System.out.println("Welcome to Java programming...");
+        int x = 10;
+        String name = "Ashish";
+        char gender = 'M';
+        boolean isAccountLocked = false;
         /**
          * Local type inference
-         * var helps you to declare variables without specifying the type
-         *
+         * var keyword allows you to declare variables without specifying the datatypes.
+         * can only be used inside the methods
          */
-        var y=100.4;
-        // var x=null , can not be assigned
-        // var can not be used direcly in a class , only in methods,it is LOCAL meaning in the method , thus local type inference
+        var y = 100.4;
+        // var x = null; // cannot assign null values
         /**
-         * Text blocks , to Print formatted text
-         * TExt="""
-         *
-         * """
+         * Text blocks, use """ to declare text blocks
          */
-        String WelcomeMessage= """
-                Hi
-                My name is Vishnu and 
-                this is the example of Text bocks
-                text would be properly formatted
+        String welcomeMessage = """
+                Hello,
                 
+                We are happy to welcome you into this program.
+                Hope you have a very productive learning experience.
                 
-                
-                In the end""";
-        System.out.println(WelcomeMessage);
+                Thanks
+                Learning Team
+                """;
+        System.out.println(welcomeMessage);
 
-//        final keyword used used to define constants
-        final double INTEREST_RATE=7.456;
-        //INTEREST_RATE=56; will throw an exception
-        int age=18;
-        if (age>=18){
-            System.out.println("You can vote");
-        }
-        else {
-            System.err.println("Not eligible to vote");
-        }
-        char grade ='A';
-        if (grade=='A'){
-            System.out.println("Grade is A");
-        }
-        else if (grade=='B'){
-            System.out.println("grade is B");
-        }
-        else
-        {
-            System.out.print("You dont have grades");
-        }
+        System.out.println();
+        String alternateMessage = "Hello" + "\n\n" + "We are happy to welcome you into this program." +
+                "\nHope you have a very productive learning experience." + "\n\n" +
+                "Thanks" + "\n" + "Learning Team";
+        System.out.println(alternateMessage);
 
-        String month="JAN";
-        switch(month){
-            case "JAN":
-                System.out.print("january");
-                break;
-            case "FEB":
-                System.out.print("february");
-                break;
-            default:
-                System.out.println("Not a month");
-        }
+        // final keyword can be used to define constants
+        final double INTEREST_RATE = 6.4;
+        // INTEREST_RATE = 10; // error
+
     }
-
 }
