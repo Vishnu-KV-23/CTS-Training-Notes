@@ -30,7 +30,14 @@ public class Student {
         System.out.println("Instance block executed");
     }
     public Student(){
-            System.out.println("Student constructor executed");
+            System.out.println("Student constructor 1 executed ");
+    }
+
+    public Student(int rollNumber, String fullName, String email) {
+        System.out.println("Student constructor 2 executed");
+        this.rollNumber = rollNumber;
+        this.fullName = fullName;
+        this.email = email;
     }
 
     public String getEmail() {
